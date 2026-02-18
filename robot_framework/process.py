@@ -1,10 +1,10 @@
 """This module contains the main process of the robot."""
 
-import yaml
 from datetime import datetime
 import os
 import json
 
+import yaml
 from itk_dev_shared_components.smtp import smtp_util
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
 
@@ -18,7 +18,7 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
 
     mail_list = json.loads(orchestrator_connection.process_arguments)
 
-    with open("kageliste.yaml") as file:
+    with open("kageliste.yaml", encoding="utf-8") as file:
         data = yaml.safe_load(file)
 
     year = datetime.today().year

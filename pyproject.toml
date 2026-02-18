@@ -18,7 +18,8 @@ classifiers = [
 dependencies = [
     "OpenOrchestrator == 2.*",
     "Pillow == 10.*",
-    "itk-dev-shared-components == 2.*"
+    "itk-dev-shared-components == 2.*",
+    "pyyaml"
 ]
 
 [project.optional-dependencies]
