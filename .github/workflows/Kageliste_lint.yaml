@@ -14,5 +14,8 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: pip install pyyaml
+
       - name: Validate schedule
         run: python kageliste_lint.py
