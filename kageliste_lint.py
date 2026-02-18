@@ -1,5 +1,9 @@
-import yaml
+"""This file is used to lint the kageliste.yaml file."""
+
 import sys
+
+import yaml
+
 
 KNOWN_NAMES = [
     "Gitte",
@@ -19,7 +23,7 @@ KNOWN_NAMES = [
 ]
 
 
-with open("kageliste.yaml") as file:
+with open("kageliste.yaml", encoding="utf-8") as file:
     data = yaml.safe_load(file)
 
 
