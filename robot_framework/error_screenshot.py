@@ -3,6 +3,7 @@
 import smtplib
 from email.message import EmailMessage
 import base64
+import html
 import traceback
 from io import BytesIO
 
@@ -33,12 +34,15 @@ def send_error_screenshot(to_address: str | list[str], exception: Exception, pro
     screenshot_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
 
     # Create an HTML message with the exception and screenshot
+    error_type = html.escape(type(exception).__name__)
+    error_message = html.escape(str(exception))
+    error_trace = html.escape(traceback.format_exc())
     html_message = f"""
     <html>
         <body>
-            <p>Error type: {type(exception).__name__}</p>
-            <p>Error message: {exception}</p>
-            <p>{traceback.format_exc()}</p>
+            <p>Error type: {error_type}</p>
+            <p>Error message: {error_message}</p>
+            <p>{error_trace}</p>
             <img src="data:image/png;base64,{screenshot_base64}" alt="Screenshot">
         </body>
     </html>
