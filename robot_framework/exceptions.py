@@ -1,6 +1,7 @@
 """This module contains various functions and classes to handle errors in the framework."""
 
 import traceback
+from collections.abc import Callable
 
 from OpenOrchestrator.database.queues import QueueElement, QueueStatus
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
@@ -34,7 +35,7 @@ def handle_error(message: str, error: Exception, queue_element: QueueElement | N
     error_screenshot.send_error_screenshot(error_email, error, orchestrator_connection.process_name)
 
 
-def log_exception(orchestrator_connection: OrchestratorConnection) -> callable:
+def log_exception(orchestrator_connection: OrchestratorConnection) -> Callable:
     """Creates a function to be used as an exception hook that logs any uncaught exception in OpenOrchestrator.
 
     Args:
