@@ -1,7 +1,6 @@
 """This module contains the main process of the robot."""
 
 from datetime import datetime
-import os
 import json
 
 import yaml
