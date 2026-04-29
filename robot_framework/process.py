@@ -1,7 +1,6 @@
 """This module contains the main process of the robot."""
 
 from datetime import datetime
-import os
 import json
 
 import yaml
@@ -42,10 +41,3 @@ def process(orchestrator_connection: OrchestratorConnection) -> None:
         smtp_server=config.SMTP_SERVER,
         smtp_port=config.SMTP_PORT
     )
-
-
-if __name__ == '__main__':
-    conn_string = os.getenv("OpenOrchestratorConnString")
-    crypto_key = os.getenv("OpenOrchestratorKey")
-    oc = OrchestratorConnection("Kagebot test", conn_string, crypto_key, "", "")
-    process(oc)
