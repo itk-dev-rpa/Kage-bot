@@ -19,7 +19,9 @@ KNOWN_NAMES = [
     "Mads",
     "Jeppe",
     "Martin",
-    "Jesper K"
+    "Jesper K",
+    "Daniel",
+    "Iben"
 ]
 
 
